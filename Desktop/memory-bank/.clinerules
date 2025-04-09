@@ -1,0 +1,75 @@
+# Cline Rules for Slipstream Component
+
+## Memory Bank Purpose
+
+This app-specific memory bank contains detailed information about the Slipstream component of the Surfboard Payments project. It follows the same structure as the root memory bank but focuses specifically on Slipstream's architecture, implementation, and current status.
+
+## Memory Bank Structure
+
+The Slipstream memory bank consists of the following core files:
+
+1. **projectbrief.md** - Overview of Slipstream's purpose and core functionality
+2. **productContext.md** - Problems solved by Slipstream and its role in the system
+3. **systemPatterns.md** - Slipstream's architecture and design patterns
+4. **techContext.md** - Technologies and dependencies specific to Slipstream
+5. **activeContext.md** - Current development focus and challenges for Slipstream
+6. **progress.md** - Implementation status and upcoming work for Slipstream
+
+## Relationship to Root Memory Bank
+
+This app-specific memory bank is designed to:
+
+1. Provide detailed information about Slipstream that would be too specific for the root memory bank
+2. Follow the same structure and standards as the root memory bank
+3. Work both in conjunction with the root memory bank and in isolation
+4. Be referenced from the root memory bank's activeContext.md file
+
+## Coding Standards
+
+1. **TypeScript Usage**
+
+    - Strong typing is mandatory for all code
+    - Avoid using `any` type where possible
+    - Use interfaces for defining data structures
+
+2. **Function Design**
+
+    - Functions should ideally perform a single task
+    - Complex operations should be broken down into smaller, focused functions
+
+3. **Code Formatting**
+    - ESLint is used for code linting
+    - Follow the established formatting patterns in the codebase
+
+## Slipstream-Specific Patterns
+
+1. **Message Handling**
+
+    - Messages follow a specific structure with type, messageId, and path tracking
+    - Path-based routing prevents message loops in the network
+    - Tag-based routing enables targeted message delivery
+
+2. **Connection Management**
+
+    - WebSocket connections are established and maintained automatically
+    - Reconnection attempts are limited to prevent resource exhaustion
+    - Heartbeat mechanism detects connection issues
+
+3. **Message Persistence**
+    - Messages are stored in SQLite database for reliability
+    - Message delivery status is tracked for each connection
+    - Unacknowledged messages are republished with a controlled strategy
+
+## Documentation Requirements
+
+1. **Code Documentation**
+
+    - Complex logic should be documented with clear comments
+    - Public APIs should have comprehensive documentation
+    - Message types and structures should be well-documented
+
+2. **Memory Bank Updates**
+    - The memory bank should be updated when significant changes are made to Slipstream
+    - New message types should be documented in systemPatterns.md
+    - Current development focus should be kept up-to-date in activeContext.md
+    - Implementation status should be reflected in progress.md
